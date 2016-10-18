@@ -33,7 +33,7 @@ for ($i = 0, $j = 0; $i < count($index); $i++) {
 if ($j > 0) {
 	for ($total = 0, $last = 0; $total < $j; $last += 5) {
 		echo "\t\t\t\t<tr>\n";
-		for ($i = $last; $i < ($last + 5); $i++) {
+		for ($i = $total; $i < $last; $i++) {
 			if ($total == 0) {
 				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n\t\t\t\t\t</td>\n";
 				array_unshift($items, "");
