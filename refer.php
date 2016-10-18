@@ -7,13 +7,10 @@ if (isset($_GET["path"])) {
 	$directory = $_GET["path"];
 }
 $index = scandir($directory);
-$indexcnt = count($index);
-$itemscnt = 0;
-$ignore = 0;
-for ($i = 0; $i < $indexcnt; $i++) {
-	if (substr($index[$i], 0, 1) != "." && substr($index[$i], 0, 1) != "_") {
-		$items[] = $index[$i];
-		$itemscnt++;
+for ($i = 0, $j = 0; $i < count($index); $i++) {
+	if (substr($index[$i], 0, 1) != ".") {
+		$items[$j] = $index[$i];
+		$j++;
 	}
 }
 
@@ -21,8 +18,8 @@ for ($i = 0; $i < $indexcnt; $i++) {
 <html>
 	<head>
 		<title>refer.php</title>
-		<link rel="stylesheet" href="style.css"></link>
-		<link rel="icon" href="octicons/file-directory.svg"></link>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="octicons/file-directory.svg" />
 	</head>
 	<body bgcolor="#FFFFFF">
 		<div class="container">
@@ -33,19 +30,16 @@ for ($i = 0; $i < $indexcnt; $i++) {
 			<table border="0" cellspacing="0px">
 <?php
 
-$total = 0;
-$last = 0;
-if ($itemscnt != 0) {
-	while ($total < $itemscnt) {
+if ($j > 0) {
+	for ($total = 0, $last = 0; $total < $j; $last += 5) {
 		echo "\t\t\t\t<tr>\n";
-		$last = $total;
 		for ($i = $last; $i < ($last + 5); $i++) {
-			if ($total < 1) {
+			if ($total == 0) {
 				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n\t\t\t\t\t</td>\n";
 				array_unshift($items, "");
 				$total++;
-				$itemscnt++;
 				$i++;
+				$j++;
 			}
 			if (is_dir($directory.$items[$total])) {
 				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
@@ -109,7 +103,7 @@ if ($itemscnt != 0) {
 				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
 				$total++;
 			}
-			if ($total == $itemscnt) {
+			if ($total == $j) {
 				break;
 			}
 		}
