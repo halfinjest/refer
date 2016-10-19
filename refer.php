@@ -35,7 +35,7 @@ if ($j > 0)
 	for ($total = 0, $last = 0; $total < $j; $last += 5)
 	{
 		echo "\t\t\t\t<tr>\n";
-		for ($i = $total; $i < $last; $i++)
+		for ($i = $total; $i < $last && $total < $j; $i++)
 		{
 			if ($total == 0)
 			{
@@ -110,7 +110,6 @@ if ($j > 0)
 				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
 				$total++;
 			}
-			if ($total == $j) break;
 		}
 		echo "\t\t\t\t</tr>\n";
 	}
