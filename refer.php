@@ -28,90 +28,87 @@ for ($i = 0, $j = 0; $i < count($index); $i++) {
 			<table border="0" cellspacing="0px">
 <?php
 
-if ($j > 0)
+if ($j > 0) while ($total < $j)
 {
-	while ($total < $j)
+	$last += 5;
+	echo "\t\t\t\t<tr>\n";
+	for ($i = $total; $i < $last && $total < $j; $i++)
 	{
-		$last += 5;
-		echo "\t\t\t\t<tr>\n";
-		for ($i = $total; $i < $last && $total < $j; $i++)
+		if ($total == 0)
 		{
-			if ($total == 0)
-			{
-				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n\t\t\t\t\t</td>\n";
-				array_unshift($items, "");
-				$total++;
-				$i++;
-				$j++;
-			}
-			if (is_dir($directory.$items[$total]))
-			{
-				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
-				$total++;
-			}
-			else
-			{
-				switch (strrchr($items[$total], "."))
-				{
-					case ".bmp":
-					case ".gif":
-					case ".jpg":
-					case ".jpeg":
-					case ".png":
-					case ".psd":
-					case ".svg";
-					case ".xcf":
-						$image = "octicons/file-media.svg";
-						break;
-					case ".doc":
-					case ".docx":
-					case ".msg":
-					case ".pages":
-					case ".rtf":
-					case ".txt":
-					case ".wpd":
-					case ".wps":
-						$image = "octicons/file-text.svg";
-						break;
-					case ".m4a":
-					case ".mid":
-					case ".mp3":
-					case ".mpa":
-					case ".wav":
-					case ".wma":
-						$image = "octicons/file-media.svg";
-						break;
-					case ".avi":
-					case ".flv":
-					case ".mov":
-					case ".mp4":
-					case ".mpg":
-					case ".swf":
-					case ".wmv":
-						$image = "octicons/file-media.svg";
-						break;
-					case ".pdf":
-						$image = "octicons/file-pdf.svg";
-						break;
-					case ".css":
-					case ".htm":
-					case ".html":
-					case ".js":
-					case ".jsp":
-					case ".php":
-					case ".xhtml":
-						$image = "octicons/file-code.svg";
-						break;
-					default:
-						$image = "octicons/file.svg";
-						break;
-				}
-				echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
-				$total++;
-			}
+			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n\t\t\t\t\t</td>\n";
+			array_unshift($items, "");
+			$total++;
+			$i++;
+			$j++;
 		}
-		echo "\t\t\t\t</tr>\n";
+		if (is_dir($directory.$items[$total]))
+		{
+			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
+			$total++;
+		}
+		else
+		{
+			switch (strrchr($items[$total], "."))
+			{
+				case ".bmp":
+				case ".gif":
+				case ".jpg":
+				case ".jpeg":
+				case ".png":
+				case ".psd":
+				case ".svg";
+				case ".xcf":
+					$image = "octicons/file-media.svg";
+					break;
+				case ".doc":
+				case ".docx":
+				case ".msg":
+				case ".pages":
+				case ".rtf":
+				case ".txt":
+				case ".wpd":
+				case ".wps":
+					$image = "octicons/file-text.svg";
+					break;
+				case ".m4a":
+				case ".mid":
+				case ".mp3":
+				case ".mpa":
+				case ".wav":
+				case ".wma":
+					$image = "octicons/file-media.svg";
+					break;
+				case ".avi":
+				case ".flv":
+				case ".mov":
+				case ".mp4":
+				case ".mpg":
+				case ".swf":
+				case ".wmv":
+					$image = "octicons/file-media.svg";
+					break;
+				case ".pdf":
+					$image = "octicons/file-pdf.svg";
+					break;
+				case ".css":
+				case ".htm":
+				case ".html":
+				case ".js":
+				case ".jsp":
+				case ".php":
+				case ".xhtml":
+					$image = "octicons/file-code.svg";
+					break;
+				default:
+					$image = "octicons/file.svg";
+					break;
+			}
+			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
+			$total++;
+		}
 	}
+	echo "\t\t\t\t</tr>\n";
 }
 else
 {
