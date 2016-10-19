@@ -30,8 +30,9 @@ for ($i = 0, $j = 0; $i < count($index); $i++) {
 
 if ($j > 0)
 {
-	for ($total = 0, $last = 0; $total < $j; $last += 5)
+	while ($total < $j)
 	{
+		$last += 5;
 		echo "\t\t\t\t<tr>\n";
 		for ($i = $total; $i < $last && $total < $j; $i++)
 		{
