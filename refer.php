@@ -17,14 +17,14 @@ for ($i = 0, $j = 0; $i < count($index); $i++) {
 ?>
 <html>
 	<head>
-		<title>refer.php</title>
+		<title>refer</title>
 		<link rel="stylesheet" href="style.css" />
 		<link rel="icon" href="octicons/file-directory.svg" />
 	</head>
 	<body bgcolor="#FFFFFF">
 		<div class="container">
 			<div class="header">
-				<h1 align="center">refer.php</h1>
+				<h1 align="center">refer</h1>
 				<h3><?php echo "Index of ".$directory; ?></h3>
 			</div>
 			<table border="0" cellspacing="0px">
