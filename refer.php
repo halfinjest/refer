@@ -23,7 +23,7 @@ for ($i = 0, $j = 0; $i < count($index); $i++) {
 		<div class="container">
 			<div class="header">
 				<h1 align="center">refer</h1>
-				<h3><?php echo "Index of ".$directory; ?></h3>
+				<h3>Index of <?=$directory?></h3>
 			</div>
 			<table border="0" cellspacing="0px">
 <?php
