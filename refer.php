@@ -1,7 +1,6 @@
 <?php
 
-date_default_timezone_set('America/Chicago');
-
+date_default_timezone_set("America/Chicago");
 $directory = "./";
 if (isset($_GET["path"])) {
 	$directory = $_GET["path"];
