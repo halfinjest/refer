@@ -1,17 +1,12 @@
 <?php
 
-if (isset($_GET["path"])) {
-	$directory = $_GET["path"];
-}
-else {
-	header("Location: ?path=./");
-}
+if (isset($_GET["path"])) $directory = $_GET["path"];
+else header("Location: ?path=./");
 $index = scandir($directory);
-for ($i = 0, $j = 0; $i < count($index); $i++) {
-	if (substr($index[$i], 0, 1) != ".") {
-		$items[$j] = $index[$i];
-		$j++;
-	}
+for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != ".")
+{
+	$items[$j] = $index[$i];
+	$j++;
 }
 
 ?>
