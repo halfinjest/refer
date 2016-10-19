@@ -1,8 +1,10 @@
 <?php
 
-$directory = "./";
 if (isset($_GET["path"])) {
 	$directory = $_GET["path"];
+}
+else {
+	header("Location: ?path=./");
 }
 $index = scandir($directory);
 for ($i = 0, $j = 0; $i < count($index); $i++) {
