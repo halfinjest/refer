@@ -19,11 +19,11 @@ for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != "
 		<link rel="icon" href="octicons/file-directory.svg" />
 	</head>
 	<body bgcolor="#FFFFFF">
-		<div class="container">
-			<div class="header">
-				<h1 align="center">refer</h1>
-				<h3>Index of <?=$directory?></h3>
-			</div>
+		<div class="header">
+			<h1 align="center">refer</h1>
+			<h3>Index of <?=$directory?></h3>
+		</div>
+		<div class="listing">
 			<table border="0" cellspacing="0px">
 <?php
 
@@ -117,8 +117,10 @@ else
 }
 
 ?>
-			</table>
-			<h4 align="right">Directory last modified: <?php echo date("F d, Y", stat($directory)["mtime"])." at ".date("H:i:s", stat($directory)["mtime"]).", ".explode("/", $timezone)[1]; ?></h4>
-		</div>
+				</table>
+			</div>
+			<div class="footer">
+				<h4 align="right">Directory last modified: <?php echo date("F d, Y", stat($directory)["mtime"])." at ".date("H:i:s", stat($directory)["mtime"]).", ".explode("/", $timezone)[1]; ?></h4>
+			</div>
 	</body>
 </html>

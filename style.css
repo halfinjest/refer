@@ -1,16 +1,22 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900";
 body {
 	margin: 0px;
-	padding: 0px 0px 5px 0px;
-}
-div.container {
-	margin: 0px auto;
 	padding: 0px;
-	width: 90%;
 }
 div.header {
 	margin: 0px;
 	padding: 0px;
+	width: 100%;
+}
+div.listing {
+	margin: 0px auto;
+	padding: 0px;
+	width: 90%;
+}
+div.footer {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
 }
 div.header p {
 	margin: 0px;
