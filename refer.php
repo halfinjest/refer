@@ -1,6 +1,6 @@
 <?php
 
-$timezone = "America/Chicago";
+$timezone = "Etc/UTC";
 date_default_timezone_set($timezone);
 if (isset($_GET["path"])) $directory = $_GET["path"];
 else header("Location: ?path=./");
