@@ -1,5 +1,6 @@
 <?php
 
+date_default_timezone_set("America/Chicago");
 if (isset($_GET["path"])) $directory = $_GET["path"];
 else header("Location: ?path=./");
 $index = scandir($directory);
@@ -116,6 +117,7 @@ else
 
 ?>
 			</table>
+			<h4 align="right">Directory last modified: <?php echo date("F d, Y", stat($directory)["mtime"])." at ".date("H:i:s", stat($directory)["mtime"]); ?></h4>
 		</div>
 	</body>
 </html>
