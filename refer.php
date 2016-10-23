@@ -48,7 +48,7 @@ if ($j > 0) while ($total < $j)
 		}
 		else
 		{
-			switch (strrchr($items[$total], "."))
+			switch (strtolower(strrchr($items[$total], ".")))
 			{
 				case ".bmp":
 				case ".gif":
