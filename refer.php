@@ -120,7 +120,7 @@ else
 			</table>
 		</div>
 		<div class="footer">
-			<h4 align="right">Directory last modified: <?php echo date("F d, Y", stat($directory)["mtime"])." at ".date("H:i:s", stat($directory)["mtime"]).", ".explode("/", $timezone)[1]; ?></h4>
+			<h4 align="right">Directory last modified: <?=date("F d, Y", stat($directory)["mtime"])." at ".date("H:i:s", stat($directory)["mtime"]).", ".explode("/", $timezone)[1]?></h4>
 		</div>
 	</body>
 </html>
