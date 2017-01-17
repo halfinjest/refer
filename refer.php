@@ -5,11 +5,7 @@ date_default_timezone_set($timezone);
 if (isset($_GET["path"])) $directory = $_GET["path"];
 else header("Location: ?path=./");
 $index = scandir($directory);
-for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != ".")
-{
-	$items[$j] = $index[$i];
-	$j++;
-}
+for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != ".") $items[$j++] = $index[$i];
 
 ?>
 <html>
@@ -44,7 +40,6 @@ if ($j > 0) while ($total < $j)
 		if (is_dir($directory.$items[$total]))
 		{
 			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
-			$total++;
 		}
 		else
 		{
@@ -104,8 +99,8 @@ if ($j > 0) while ($total < $j)
 					break;
 			}
 			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
-			$total++;
 		}
+		$total++;
 	}
 	echo "\t\t\t\t</tr>\n";
 }
