@@ -26,12 +26,12 @@ for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != "
 if ($j > 0) while ($total < $j)
 {
 	$last += 5;
-	echo "\t\t\t\t<tr>\n";
+	echo "<tr>\n";
 	for ($i = $total; $i < $last && $total < $j; $i++)
 	{
 		if ($total == 0)
 		{
-			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n\t\t\t\t\t</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n";
 			array_unshift($items, "");
 			$total++;
 			$i++;
@@ -39,7 +39,7 @@ if ($j > 0) while ($total < $j)
 		}
 		if (is_dir($directory.$items[$total]))
 		{
-			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n</td>\n";
 		}
 		else
 		{
@@ -98,17 +98,15 @@ if ($j > 0) while ($total < $j)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n\t\t\t\t\t</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n</td>\n";
 		}
 		$total++;
 	}
-	echo "\t\t\t\t</tr>\n";
+	echo "</tr>\n";
 }
 else
 {
-	echo "\t\t\t\t<tr>\n";
-	echo "\t\t\t\t\t<td>\n\t\t\t\t\t\t<p align=\"left\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"left\">[Parent]</p>\n\t\t\t\t\t</td>\n";
-	echo "\t\t\t\t</tr>\n";
+	echo "<tr>\n<td>\n<p align=\"left\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"left\">[Parent]</p>\n</td>\n</tr>\n";
 }
 
 ?>
