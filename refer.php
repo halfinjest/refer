@@ -4,8 +4,7 @@ $timezone = "Etc/UTC";
 date_default_timezone_set($timezone);
 if (isset($_GET["path"])) $directory = $_GET["path"];
 else header("Location: ?path=./");
-$index = scandir($directory);
-for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != ".") $items[$j++] = $index[$i];
+$index = array_slice(scandir($directory), 1);
 
 ?>
 <html>
@@ -23,27 +22,24 @@ for ($i = 0, $j = 0; $i < count($index); $i++) if (substr($index[$i], 0, 1) != "
 			<table border="0" cellspacing="0px">
 <?php
 
-if ($j > 0) while ($total < $j)
+$total = count($index);
+if ($total > 1) while ($i < $total - 1)
 {
 	$last += 5;
 	echo "<tr>\n";
-	for ($i = $total; $i < $last && $total < $j; $i++)
+	if ($i == 0)
 	{
-		if ($total == 0)
+		echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n";
+	}
+	while ($i < $last - 1 && ++$i < $total)
+	{
+		if (is_dir($directory.$index[$i]))
 		{
-			echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n";
-			array_unshift($items, "");
-			$total++;
-			$i++;
-			$j++;
-		}
-		if (is_dir($directory.$items[$total]))
-		{
-			echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".$directory.$items[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".$directory.$index[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
 		}
 		else
 		{
-			switch (strtolower(strrchr($items[$total], ".")))
+			switch (strtolower(strrchr($index[$i], ".")))
 			{
 				case ".bmp":
 				case ".gif":
@@ -98,17 +94,16 @@ if ($j > 0) while ($total < $j)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<p align=\"center\"><a href=\"".$directory.$items[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">$items[$i]</p>\n</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"".$index[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
 		}
-		$total++;
 	}
+	if ($total < 5) for ($i = $total; $i < 5; $i++) echo "<td>\n</td>\n";
 	echo "</tr>\n";
 }
 else
 {
-	echo "<tr>\n<td>\n<p align=\"left\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"left\">[Parent]</p>\n</td>\n</tr>\n";
+	echo "<tr>\n<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
 }
-
 ?>
 			</table>
 		</div>
