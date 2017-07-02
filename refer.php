@@ -88,7 +88,7 @@ if ($total > 1) while ($i < $total - 1)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<p align=\"center\"><a href=\"".$index[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
+			echo "<td>\n<p align=\"center\"><a href=\"".$directory.$index[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
 		}
 	}
 	if ($total < 5) for ($i = $total; $i < 5; $i++) echo "<td>\n</td>\n";
