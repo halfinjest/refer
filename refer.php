@@ -9,7 +9,7 @@ $index = array_slice(scandir($directory), 1);
 ?>
 <html>
 	<head>
-		<title>refer</title>
+		<title>Index of <?=$directory?></title>
 		<link rel="stylesheet" href="refer.css" />
 		<link rel="icon" href="octicons/file-directory.svg" />
 	</head>
