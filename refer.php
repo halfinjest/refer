@@ -13,7 +13,7 @@ $index = array_slice(scandir($directory), 1);
 		<link rel="stylesheet" href="css/refer.css" />
 		<link rel="icon" href="octicons/file-directory.svg" />
 	</head>
-	<body bgcolor="#FFFFFF">
+	<body>
 		<div class="header">
 			<h1 align="center">refer</h1>
 			<h3>Index of <?=$directory?></h3>
