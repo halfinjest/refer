@@ -38,6 +38,7 @@ if ($total > 1) while ($i < $total - 1)
 				case ".gif":
 				case ".jpg":
 				case ".jpeg":
+				case ".ico";
 				case ".png":
 				case ".psd":
 				case ".svg";
