@@ -25,12 +25,12 @@ $index = array_slice(scandir($directory), 1);
 $total = count($index);
 if ($total > 1) while ($i < $total - 1)
 {
-	$last += 5;
+	$last += 4;
 	echo "<tr>\n";
-	if ($i == 0) echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n";
+	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $last - 1 && ++$i < $total)
 	{
-		if (is_dir($directory.$index[$i])) echo "<td>\n<p align=\"center\"><a href=\"refer.php?path=".$directory.$index[$i]."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
+		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		else
 		{
 			switch (strtolower(strrchr($index[$i], ".")))
@@ -88,13 +88,13 @@ if ($total > 1) while ($i < $total - 1)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<p align=\"center\"><a href=\"".$directory.$index[$i]."\"><img src=\"".$image."\" height=\"50px\"></img></a></p><p align=\"center\">".$index[$i]."</p>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
-	if ($total < 5) for ($i = $total; $i < 5; $i++) echo "<td>\n</td>\n";
+	if ($total < 4) for ($i = $total; $i < 4; $i++) echo "<td>\n</td>\n";
 	echo "</tr>\n";
 }
-else echo "<tr>\n<td>\n<p align=\"center\"><a href=\"refer.php?path=".dirname($directory)."/\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></a></p><p align=\"center\">[Parent]</p>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
+else echo "<tr>\n<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
 ?>
 			</table>
 		</div>
