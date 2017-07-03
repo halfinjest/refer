@@ -8,17 +8,17 @@ $index = array_slice(scandir($directory), 1);
 
 ?>
 <html>
-	<head>
-		<title>Index of <?=$directory?></title>
-		<link rel="stylesheet" href="css/refer.css" />
-		<link rel="icon" href="octicons/file-directory.svg" />
-	</head>
-	<body>
-		<div class="header">
-			<p>Index of <?=$directory?></p>
-		</div>
-		<div class="listing">
-			<table border="0" cellspacing="0px">
+<head>
+<title>Index of <?=$directory?></title>
+<link rel="stylesheet" href="css/refer.css" />
+<link rel="icon" href="octicons/file-directory.svg" />
+</head>
+<body>
+<div class="header">
+<p>Index of <?=$directory?></p>
+</div>
+<div class="listing">
+<table border="0" cellspacing="0px">
 <?php
 
 $total = count($index);
@@ -95,7 +95,7 @@ if ($total > 1) while ($i < $total - 1)
 }
 else echo "<tr>\n<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
 ?>
-			</table>
-		</div>
-	</body>
+</table>
+</div>
+</body>
 </html>
