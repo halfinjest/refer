@@ -15,7 +15,7 @@ $index = array_slice(scandir($directory), 1);
 	</head>
 	<body>
 		<div class="header">
-			<h3>Index of <?=$directory?></h3>
+			<p>Index of <?=$directory?></p>
 		</div>
 		<div class="listing">
 			<table border="0" cellspacing="0px">
