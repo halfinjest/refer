@@ -15,7 +15,6 @@ $index = array_slice(scandir($directory), 1);
 	</head>
 	<body>
 		<div class="header">
-			<h1 align="center">refer</h1>
 			<h3>Index of <?=$directory?></h3>
 		</div>
 		<div class="listing">
@@ -30,7 +29,7 @@ if ($total > 1) while ($i < $total - 1)
 	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $last - 1 && ++$i < $total)
 	{
-		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\" title=\"".$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		else
 		{
 			switch (strtolower(strrchr($index[$i], ".")))
@@ -88,7 +87,7 @@ if ($total > 1) while ($i < $total - 1)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\" title=\"".$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($total < 4) for ($i = $total; $i < 4; $i++) echo "<td>\n</td>\n";
