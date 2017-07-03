@@ -77,7 +77,6 @@ if ($total > 1) while ($i < $total - 1)
 				case ".htm":
 				case ".html":
 				case ".js":
-				case ".jsp":
 				case ".php":
 				case ".xhtml":
 					$image = "octicons/file-code.svg";
