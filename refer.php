@@ -3,6 +3,7 @@
 if (isset($_GET["path"])) $directory = $_GET["path"];
 else header("Location: ?path=./");
 $index = array_slice(scandir($directory), 1);
+$columns = 4;
 
 ?>
 <html>
@@ -22,7 +23,7 @@ $index = array_slice(scandir($directory), 1);
 $length = count($index);
 if ($length > 1) while ($i < $length - 1)
 {
-	$j += 4;
+	$j += $columns;
 	echo "<tr>\n";
 	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $j - 1 && ++$i < $length)
@@ -88,7 +89,7 @@ if ($length > 1) while ($i < $length - 1)
 			echo "<td>\n<a href=\"".$directory.$index[$i]."\" title=\"".$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
-	if ($length < 4) for ($i = $length; $i < 4; $i++) echo "<td>\n</td>\n";
+	if ($length < $columns) for ($i = $length; $i < $columns; $i++) echo "<td>\n</td>\n";
 	echo "</tr>\n";
 }
 else echo "<tr>\n<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
