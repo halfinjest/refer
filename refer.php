@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_GET["path"])) $directory = $_GET["path"];
+if (isset($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
 else header("Location: ?path=./");
 $index = array_slice(scandir($directory), 1);
 $columns = 4;
