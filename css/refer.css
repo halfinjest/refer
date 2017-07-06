@@ -21,8 +21,10 @@ div.header p {
 	padding: 10px;
 }
 div.item {
-	margin: 10px 50px;
-	padding: 10px 0px;
+	margin: 10px auto;
+	max-width: 250px;
+	min-width: 150px;
+	padding: 10px 20px;
 }
 div.item:hover {
 	background-color: #DBDBDB;
