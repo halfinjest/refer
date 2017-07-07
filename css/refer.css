@@ -35,7 +35,7 @@ div.item {
 	margin: 10px auto;
 	max-width: 250px;
 	min-width: 150px;
-	padding: 10px 20px;
+	padding: 10px 20px 15px 20px;
 }
 div.item:hover {
 	background: rgba(219, 219, 219, 0.5);
@@ -55,7 +55,7 @@ p {
 	font-family: "Courier", sans-serif;
 	font-size: 18px;
 	margin: 0px;
-	padding: 2px 4px;
+	padding: 2px;
 }
 table {
 	margin: 20px auto;
