@@ -89,7 +89,7 @@ if ($length > 1) while ($i < $length - 1)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\" onmouseover=\"mouseover('".$index[$i]."')\" onmouseout=\"mouseout()\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseover=\"mouseover('".$index[$i]."')\" onmouseout=\"mouseout()\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($length < $columns) for ($i = $length; $i < $columns; $i++) echo "<td>\n</td>\n";
