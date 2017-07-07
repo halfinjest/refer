@@ -45,7 +45,7 @@ if ($length > 1) while ($i < $length - 1)
 				case ".psd":
 				case ".svg";
 				case ".xcf":
-					$image = "octicons/file-media.svg";
+					$image = "file-media.svg";
 					break;
 				case ".doc":
 				case ".docx":
@@ -55,7 +55,7 @@ if ($length > 1) while ($i < $length - 1)
 				case ".txt":
 				case ".wpd":
 				case ".wps":
-					$image = "octicons/file-text.svg";
+					$image = "file-text.svg";
 					break;
 				case ".m4a":
 				case ".mid":
@@ -63,7 +63,7 @@ if ($length > 1) while ($i < $length - 1)
 				case ".mpa":
 				case ".wav":
 				case ".wma":
-					$image = "octicons/file-media.svg";
+					$image = "file-media.svg";
 					break;
 				case ".avi":
 				case ".flv":
@@ -72,10 +72,10 @@ if ($length > 1) while ($i < $length - 1)
 				case ".mpg":
 				case ".swf":
 				case ".wmv":
-					$image = "octicons/file-media.svg";
+					$image = "file-media.svg";
 					break;
 				case ".pdf":
-					$image = "octicons/file-pdf.svg";
+					$image = "file-pdf.svg";
 					break;
 				case ".css":
 				case ".htm":
@@ -83,13 +83,13 @@ if ($length > 1) while ($i < $length - 1)
 				case ".js":
 				case ".php":
 				case ".xhtml":
-					$image = "octicons/file-code.svg";
+					$image = "file-code.svg";
 					break;
 				default:
-					$image = "octicons/file.svg";
+					$image = "file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"".$image."\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"octicons/".$image."\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($length < CONF_COLS) for ($i = $length; $i < CONF_COLS; $i++) echo "<td>\n</td>\n";
