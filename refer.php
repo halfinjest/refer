@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_GET["path"]) && substr($_GET["path"], 0, 2) == "./" && file_exists($_GET["path"])) $directory = $_GET["path"];
+if (isset($_GET["path"]) && file_exists($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
 else header("Location: ?path=./");
 define("CONF_COLS", 4);
 
