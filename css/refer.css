@@ -1,24 +1,38 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900";
 a {
-	color: #000000;
+	color: rgba(0, 0, 0, 1.0);
 	text-decoration: none;
 }
 body {
-	margin: 0px;
+	margin: 40px 0px 0px 0px;
 	padding: 0px;
 }
-div.header {
+div.menubar {
 	margin: 0px;
 	padding: 0px;
+	position: fixed;
+	top: 0px;
 	width: 100%;
 }
-div.header p {
-	background-color: #DBDBDB;
+div.menubar p {
 	font-family: "Roboto", sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	margin: 0px;
 	padding: 10px;
+}
+div.menubar-background {
+	background: rgba(219, 219, 219, 0.5);
+	padding: 22px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+div.menubar-left {
+	float: left;
+}
+div.menubar-right {
+	float: right;
 }
 div.item {
 	margin: 10px auto;
@@ -27,7 +41,7 @@ div.item {
 	padding: 10px 20px;
 }
 div.item:hover {
-	background-color: #DBDBDB;
+	background: rgba(219, 219, 219, 0.5);
 	border-radius: 5px;
 }
 div.item p {

@@ -2,7 +2,6 @@
 
 if (isset($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
 else header("Location: ?path=./");
-$index = array_slice(scandir($directory), 1);
 $columns = 4;
 
 ?>
@@ -11,15 +10,19 @@ $columns = 4;
 <title>Index of <?=$directory?></title>
 <link rel="stylesheet" href="css/refer.css" />
 <link rel="icon" href="octicons/file-directory.svg" />
+<script src="name.js"></script>
 </head>
 <body>
-<div class="header">
-<p>Index of <?=$directory?></p>
+<div class="menubar-background"></div>
+<div class="menubar">
+<div class="menubar-left"><p>Index of <?=$directory?></p></div>
+<div class="menubar-right"><p id="name"></p></div>
 </div>
 <div class="listing">
 <table border="0" cellspacing="0px">
 <?php
 
+$index = array_slice(scandir($directory), 1);
 $length = count($index);
 if ($length > 1) while ($i < $length - 1)
 {
@@ -28,7 +31,7 @@ if ($length > 1) while ($i < $length - 1)
 	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-symlink-directory.svg\" height=\"50px\"></img></p><p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $j - 1 && ++$i < $length)
 	{
-		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\" title=\"".$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseover=\"mouseover('".$index[$i]."/')\" onmouseout=\"mouseout()\">\n<p align=\"center\"><img src=\"octicons/file-directory.svg\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		else
 		{
 			switch (strtolower(strrchr($index[$i], ".")))
@@ -86,7 +89,7 @@ if ($length > 1) while ($i < $length - 1)
 					$image = "octicons/file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\" title=\"".$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\">\n<p align=\"center\" onmouseover=\"mouseover('".$index[$i]."')\" onmouseout=\"mouseout()\"><img src=\"".$image."\" height=\"50px\"></img></p><p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($length < $columns) for ($i = $length; $i < $columns; $i++) echo "<td>\n</td>\n";
