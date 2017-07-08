@@ -26,7 +26,9 @@ define("CONF_COLS", 4);
 <table border="0" cellspacing="0px">
 <?php
 
+$i = 0;
 $index = array_slice(scandir($directory), 1);
+$j = 0;
 $length = count($index);
 if ($length > 1) while ($i < $length - 1)
 {
