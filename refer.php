@@ -37,7 +37,9 @@ if ($length > 1) while ($i < $length - 1)
 	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('../')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $j - 1 && ++$i < $length)
 	{
-		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+		if (strlen($index[$i]) > 20) $name = substr($index[$i], 0, 18)."..";
+		else $name = $index[$i];
+		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 		else
 		{
 			switch (strtolower(strrchr($index[$i], ".")))
@@ -95,7 +97,7 @@ if ($length > 1) while ($i < $length - 1)
 					$image = "file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$index[$i]."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($length < CONF_COLS) for ($i = $length; $i < CONF_COLS; $i++) echo "<td>\n</td>\n";
