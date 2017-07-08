@@ -1,9 +1,4 @@
-function mouseout()
+function path(path)
 {
-	document.getElementById("name").innerHTML = "";
-}
-
-function mouseover(name)
-{
-	document.getElementById("name").innerHTML = name;
+	document.getElementById("path").innerHTML = path;
 }

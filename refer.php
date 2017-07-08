@@ -13,14 +13,8 @@ define("CONF_COLS", 4);
 <script src="js/name.js"></script>
 </head>
 <body>
-<div class="menubar-background"></div>
 <div class="menubar">
-<div class="menubar-left">
-<p>Index of <?=$directory?></p>
-</div>
-<div class="menubar-right">
-<p id="name"></p>
-</div>
+<p id="path"><?=$directory?></p>
 </div>
 <div class="listing">
 <table border="0" cellspacing="0px">
@@ -34,12 +28,12 @@ if ($length > 1) while ($i < $length - 1)
 {
 	$j += CONF_COLS;
 	echo "<tr>\n";
-	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('../')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
+	if ($i == 0) echo "<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory."../')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $j - 1 && ++$i < $length)
 	{
 		if (strlen($index[$i]) > 20) $name = substr($index[$i], 0, 18)."..";
 		else $name = $index[$i];
-		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
+		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"refer.php?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 		else
 		{
 			switch (strtolower(strrchr($index[$i], ".")))
@@ -97,13 +91,13 @@ if ($length > 1) while ($i < $length - 1)
 					$image = "file.svg";
 					break;
 			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('".$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
+			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 		}
 	}
 	if ($length < CONF_COLS) for ($i = $length; $i < CONF_COLS; $i++) echo "<td>\n</td>\n";
 	echo "</tr>\n";
 }
-else echo "<tr>\n<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"mouseout()\" onmouseover=\"mouseover('../')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
+else echo "<tr>\n<td>\n<a href=\"refer.php?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"path('".$directory.$index[$i]."')\" onmouseover=\"path('".$directory."../')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
 ?>
 </table>
 </div>

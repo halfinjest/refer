@@ -10,6 +10,7 @@ body {
 	padding: 0px;
 }
 div.menubar {
+	background: rgba(219, 219, 219, 0.5);
 	margin: 0px;
 	padding: 0px;
 	position: fixed;
@@ -20,19 +21,6 @@ div.menubar p {
 	font-size: 16px;
 	margin: 0px;
 	padding: 10px;
-}
-div.menubar-background {
-	background: rgba(219, 219, 219, 0.5);
-	padding: 18px;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-}
-div.menubar-left {
-	float: left;
-}
-div.menubar-right {
-	float: right;
 }
 div.item {
 	margin: 10px auto;
