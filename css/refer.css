@@ -52,7 +52,7 @@ div.listing {
 	width: 90%;
 }
 p {
-	font-family: "Courier", sans-serif;
+	font-family: "Courier", monospace;
 	font-size: 18px;
 	margin: 0px;
 	padding: 2px;
