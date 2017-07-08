@@ -55,6 +55,7 @@ div.listing p {
 	max-width: 150px;
 	overflow: hidden;
 	padding: 2px;
+	white-space: nowrap;
 }
 table {
 	margin: 20px auto;
