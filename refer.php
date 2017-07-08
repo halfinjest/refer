@@ -10,7 +10,7 @@ define("CONF_COLS", 4);
 <title>Index of <?=$directory?></title>
 <link rel="stylesheet" href="css/refer.css" />
 <link rel="icon" href="images/icon.ico" />
-<script src="js/name.js"></script>
+<script src="js/path.js"></script>
 </head>
 <body>
 <div class="menubar">
