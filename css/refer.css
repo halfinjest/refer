@@ -1,3 +1,6 @@
+* {
+	font-family: "Courier", monospace;
+}
 a {
 	color: rgba(0, 0, 0, 1.0);
 	text-decoration: none;
@@ -41,20 +44,16 @@ div.item:hover {
 	background: rgba(219, 219, 219, 0.5);
 	border-radius: 5px;
 }
-div.item p {
-	margin: 0px auto;
-	max-width: 150px;
-	overflow: hidden;
-}
 div.listing {
 	margin: 0px auto;
 	padding: 0px;
 	width: 90%;
 }
-p {
-	font-family: "Courier", monospace;
+div.listing p {
 	font-size: 18px;
-	margin: 0px;
+	margin: 0px auto;
+	max-width: 150px;
+	overflow: hidden;
 	padding: 2px;
 }
 table {
