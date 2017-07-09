@@ -21,8 +21,8 @@ define("CONF_COLS", 4);
 <?php
 
 $i = 0;
-$index = array_slice(scandir($directory), 1);
 $j = 0;
+$index = array_slice(scandir($directory), 1);
 $length = count($index);
 if ($length > 1) while ($i < $length - 1)
 {
