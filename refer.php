@@ -1,5 +1,7 @@
 <?php
 
+include("image.php");
+
 define("CONF_COLS", 4);
 
 if (isset($_GET["path"]) && file_exists($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
@@ -35,65 +37,7 @@ if ($length > 1) while ($i < $length - 1)
 		if (strlen($index[$i]) > 20) $name = substr($index[$i], 0, 18)."..";
 		else $name = $index[$i];
 		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
-		else
-		{
-			switch (strtolower(strrchr($index[$i], ".")))
-			{
-				case ".bmp":
-				case ".gif":
-				case ".jpg":
-				case ".jpeg":
-				case ".ico";
-				case ".png":
-				case ".psd":
-				case ".svg";
-				case ".xcf":
-					$image = "file-media.svg";
-					break;
-				case ".doc":
-				case ".docx":
-				case ".msg":
-				case ".pages":
-				case ".rtf":
-				case ".txt":
-				case ".wpd":
-				case ".wps":
-					$image = "file-text.svg";
-					break;
-				case ".m4a":
-				case ".mid":
-				case ".mp3":
-				case ".mpa":
-				case ".wav":
-				case ".wma":
-					$image = "file-media.svg";
-					break;
-				case ".avi":
-				case ".flv":
-				case ".mov":
-				case ".mp4":
-				case ".mpg":
-				case ".swf":
-				case ".wmv":
-					$image = "file-media.svg";
-					break;
-				case ".pdf":
-					$image = "file-pdf.svg";
-					break;
-				case ".css":
-				case ".htm":
-				case ".html":
-				case ".js":
-				case ".php":
-				case ".xhtml":
-					$image = "file-code.svg";
-					break;
-				default:
-					$image = "file.svg";
-					break;
-			}
-			echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
-		}
+		else echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".image(strtolower(strrchr($index[$i], ".")))."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 	}
 	if ($length < CONF_COLS) for ($i = $length; $i < CONF_COLS; $i++) echo "<td>\n</td>\n";
 	echo "</tr>\n";
