@@ -44,6 +44,7 @@ if ($length > 1) while ($i < $length - 1)
 	echo "</tr>\n";
 }
 else echo "<tr>\n<td>\n<a href=\"?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"path('".$directory.$index[$i]."')\" onmouseover=\"path('".dirname($directory)."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n";
+
 ?>
 </table>
 </div>
