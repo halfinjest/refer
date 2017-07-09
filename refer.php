@@ -3,6 +3,7 @@
 include("image.php");
 
 define("CONF_COL", 4);
+define("CONF_MAX", 20);
 
 if (isset($_GET["path"]) && file_exists($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
 else header("Location: ?path=./");
@@ -34,7 +35,7 @@ if ($length > 1) while ($i < $length - 1)
 	if ($i == 0) echo "<td>\n<a href=\"?path=".dirname($directory)."/\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".dirname($directory)."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-symlink-directory.svg\"></img></p>\n<p align=\"center\">[Parent]</p>\n</div>\n</a>\n</td>\n";
 	while ($i < $j - 1 && ++$i < $length)
 	{
-		if (strlen($index[$i]) > 20) $name = substr($index[$i], 0, 18)."..";
+		if (strlen($index[$i]) > CONF_MAX) $name = substr($index[$i], 0, CONF_MAX - 2)."..";
 		else $name = $index[$i];
 		if (is_dir($directory.$index[$i])) echo "<td>\n<a href=\"?path=".$directory.$index[$i]."/\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."/')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/file-directory.svg\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 		else echo "<td>\n<a href=\"".$directory.$index[$i]."\">\n<div class=\"item\" onmouseout=\"path('".$directory."')\" onmouseover=\"path('".$directory.$index[$i]."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".image(strtolower(strrchr($index[$i], ".")))."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
