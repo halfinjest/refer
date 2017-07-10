@@ -8,10 +8,10 @@ function image($file)
 		case ".gif":
 		case ".jpg":
 		case ".jpeg":
-		case ".ico";
+		case ".ico":
 		case ".png":
 		case ".psd":
-		case ".svg";
+		case ".svg":
 		case ".xcf":
 			return "file-media.svg";
 		case ".doc":
