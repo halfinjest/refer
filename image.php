@@ -1,8 +1,8 @@
 <?php
 
-function image($file)
+function image($extension)
 {
-	switch ($file)
+	switch ($extension)
 	{
 		case ".bmp":
 		case ".gif":
