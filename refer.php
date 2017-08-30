@@ -27,7 +27,16 @@ else header("Location: ?path=./");
 $i = 0;
 $j = 0;
 $index = array_slice(scandir($directory), 1);
+$directories = [];
+$files = [];
 $length = count($index);
+for ($i = 0; $i < $length; $i++)
+{
+	if (is_dir($directory.$index[$i])) $directories[] = $index[$i];
+	else $files[] = $index[$i];
+}
+$i = 0;
+$index = array_merge($directories, $files);
 if ($length > 1) while ($i < $length - 1)
 {
 	$j += CONF_COL;
