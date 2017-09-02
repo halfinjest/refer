@@ -1,6 +1,6 @@
 <?php
 
-function image($extension)
+function type($extension)
 {
 	switch ($extension)
 	{
@@ -13,7 +13,7 @@ function image($extension)
 		case ".psd":
 		case ".svg":
 		case ".xcf":
-			return "file-media.svg";
+			return "image";
 		case ".doc":
 		case ".docx":
 		case ".msg":
@@ -22,14 +22,14 @@ function image($extension)
 		case ".txt":
 		case ".wpd":
 		case ".wps":
-			return "file-text.svg";
+			return "text";
 		case ".m4a":
 		case ".mid":
 		case ".mp3":
 		case ".mpa":
 		case ".wav":
 		case ".wma":
-			return "file-media.svg";
+			return "media";
 		case ".avi":
 		case ".flv":
 		case ".mov":
@@ -37,17 +37,35 @@ function image($extension)
 		case ".mpg":
 		case ".swf":
 		case ".wmv":
-			return "file-media.svg";
+			return "media";
 		case ".pdf":
-			return "file-pdf.svg";
+			return "pdf";
 		case ".css":
 		case ".htm":
 		case ".html":
 		case ".js":
 		case ".php":
 		case ".xhtml":
-			return "file-code.svg";
+			return "code";
 		default:
+			return "other";
+	}
+}
+
+function image($extension)
+{
+	switch (type($extension))
+	{
+		case "image":
+		case "media":
+			return "file-media.svg";
+		case "text":
+			return "file-text.svg";
+		case "pdf":
+			return "file-pdf.svg";
+		case "code":
+			return "file-code.svg";
+		case "other":
 			return "file.svg";
 	}
 }

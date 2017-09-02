@@ -10,9 +10,8 @@ body {
 	padding: 0px;
 }
 div.menubar {
-	background: rgba(219, 219, 219, 0.5);
-	margin: 0px;
-	padding: 0px;
+	background: rgba(255, 255, 255, 0.8);
+	border-bottom: 2px solid rgba(0, 0, 0, 1.0);
 	position: fixed;
 	top: 0px;
 	width: 100%;
@@ -21,20 +20,16 @@ div.menubar p {
 	font-size: 16px;
 	margin: 0px;
 	padding: 10px;
+	white-space: nowrap;
 }
 div.item {
-	margin: 10px auto;
-	max-width: 250px;
-	min-width: 150px;
-	padding: 10px 20px 15px 20px;
-}
-div.item:hover {
-	background: rgba(219, 219, 219, 0.5);
 	border-radius: 5px;
+	margin: 10px auto;
+	width: 200px;
+	padding: 10px 20px 15px 20px;
 }
 div.listing {
 	margin: 0px auto;
-	padding: 0px;
 	width: 90%;
 }
 div.listing p {
@@ -42,6 +37,21 @@ div.listing p {
 	margin: 0px auto;
 	padding: 2px;
 	white-space: nowrap;
+}
+div.preview {
+	background: rgba(255, 255, 255, 0.8);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 2px solid rgba(0, 0, 0, 1.0);
+	border-radius: 5px;
+	bottom: 15%;
+	left: 25%;
+	pointer-events: none;
+	position: fixed;
+	right: 25%;
+	top: 15%;
+	visibility: hidden;
 }
 table {
 	margin: 20px auto;
