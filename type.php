@@ -17,9 +17,7 @@ function type($extension)
 		case ".jpeg":
 		case ".ico":
 		case ".png":
-		case ".psd":
 		case ".svg":
-		case ".xcf":
 			return "image";
 		case ".m4a":
 		case ".mid":
