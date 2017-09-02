@@ -1,13 +1,13 @@
 <?php
 
-include("type.php");
+include("get_type.php");
 
 define("CONF_COL", 4);
 define("CONF_MAX", 20);
 	
 function get_item($directory, $id, $image, $index, $name, $path, $prefix)
 {
-	return "<td>\n<a href=\"".$prefix.$path."\">\n<div class=\"item\" id=\"".$id."\" onmouseout=\"hover(0, '".$id."', '".$directory."', '')\" onmouseover=\"hover(1, '".$id."', '".$path."', '".(is_dir($path) ? "directory" : type(strtolower(strrchr($index[$id], "."))))."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
+	return "<td>\n<a href=\"".$prefix.$path."\">\n<div class=\"item\" id=\"".$id."\" onmouseout=\"hover(0, '".$id."', '".$directory."', '')\" onmouseover=\"hover(1, '".$id."', '".$path."', '".(is_dir($path) ? "directory" : get_type(strtolower(strrchr($index[$id], "."))))."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
 }
 
 function get_safe_path($path)
@@ -60,7 +60,7 @@ if ($length > 1) while ($i < $length - 1)
 		if (strlen($index[$i]) > CONF_MAX) $name = substr($index[$i], 0, CONF_MAX - 2)."..";
 		else $name = $index[$i];
 		if (is_dir($path)) printf(get_item($directory, $i, "file-directory.svg", $index, $name, $path."/", "?path="));
-		else printf(get_item($directory, $i, image(strtolower(strrchr($index[$i], "."))), $index, $name, $path, ""));
+		else printf(get_item($directory, $i, get_image(strtolower(strrchr($index[$i], "."))), $index, $name, $path, ""));
 	}
 	if ($length < CONF_COL) for ($i = $length; $i < CONF_COL; $i++) printf("<td>\n</td>\n");
 	printf("</tr>\n");

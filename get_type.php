@@ -1,6 +1,6 @@
 <?php
 
-function type($extension)
+function get_type($extension)
 {
 	switch ($extension)
 	{
@@ -48,9 +48,9 @@ function type($extension)
 	}
 }
 
-function image($extension)
+function get_image($extension)
 {
-	switch (type($extension))
+	switch (get_type($extension))
 	{
 		case "other": return "file.svg";
 		case "code": return "file-code.svg";
