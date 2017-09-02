@@ -1,0 +1,81 @@
+* {
+	font-family: "Courier", monospace;
+}
+a {
+	color: rgba(255, 255, 255, 1.0);
+	text-decoration: none;
+}
+body {
+	background: rgba(0, 0, 0, 1.0);
+	margin: 40px 0px 0px 0px;
+	padding: 0px;
+}
+div.item {
+	border-radius: 5px;
+	margin: 10px auto;
+	width: 200px;
+	padding: 10px 20px 15px 20px;
+}
+div.item img {
+	filter: invert(1.0);
+}
+div.listing {
+	margin: 0px auto;
+	width: 90%;
+}
+div.listing p {
+	font-size: 16px;
+	margin: 0px auto;
+	padding: 2px;
+	white-space: nowrap;
+}
+div.menubar {
+	background: rgba(0, 0, 0, 0.8);
+	border-bottom: 2px solid rgba(255, 255, 255, 1.0);
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+div.menubar p {
+	color: rgba(255, 255, 255, 1.0);
+	font-size: 16px;
+	margin: 0px;
+	padding: 10px;
+	white-space: nowrap;
+}
+div.menu-left {
+	display: inline-block;
+}
+div.menu-right {
+	display: inline-block;
+	float: right;
+}
+div.preview {
+	background: rgba(255, 255, 255, 0.8);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 2px solid rgba(255, 255, 255, 1.0);
+	border-radius: 5px;
+	bottom: 15%;
+	left: 25%;
+	pointer-events: none;
+	position: fixed;
+	right: 25%;
+	top: 15%;
+	visibility: hidden;
+}
+table {
+	margin: 20px auto;
+	padding: 0px;
+	width: 100%;
+}
+td {
+	margin: 0px;
+	padding: 0px;
+	width: 20%;
+}
+tr {
+	margin: 0px;
+	padding: 0px;
+}

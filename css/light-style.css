@@ -6,21 +6,9 @@ a {
 	text-decoration: none;
 }
 body {
+	background: rgba(255, 255, 255, 1.0);;
 	margin: 40px 0px 0px 0px;
 	padding: 0px;
-}
-div.menubar {
-	background: rgba(255, 255, 255, 0.8);
-	border-bottom: 2px solid rgba(0, 0, 0, 1.0);
-	position: fixed;
-	top: 0px;
-	width: 100%;
-}
-div.menubar p {
-	font-size: 16px;
-	margin: 0px;
-	padding: 10px;
-	white-space: nowrap;
 }
 div.item {
 	border-radius: 5px;
@@ -37,6 +25,27 @@ div.listing p {
 	margin: 0px auto;
 	padding: 2px;
 	white-space: nowrap;
+}
+div.menubar {
+	background: rgba(255, 255, 255, 0.8);
+	border-bottom: 2px solid rgba(0, 0, 0, 1.0);
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+div.menubar p {
+	font-color: rgba(0, 0, 0, 1.0);
+	font-size: 16px;
+	margin: 0px;
+	padding: 10px;
+	white-space: nowrap;
+}
+div.menu-left {
+	display: inline-block;
+}
+div.menu-right {
+	display: inline-block;
+	float: right;
 }
 div.preview {
 	background: rgba(255, 255, 255, 0.8);
