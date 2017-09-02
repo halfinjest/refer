@@ -34,7 +34,7 @@ div.menubar {
 	width: 100%;
 }
 div.menubar p {
-	font-color: rgba(0, 0, 0, 1.0);
+	color: rgba(0, 0, 0, 1.0);
 	font-size: 16px;
 	margin: 0px;
 	padding: 10px;
