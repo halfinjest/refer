@@ -79,7 +79,7 @@ if ($length > 1) while ($i < $length - 1)
 {
 	$j += CONF_COL;
 	printf("<tr>\n");
-	if ($i == 0) printf(get_item($directory, $i, "file-symlink-directory.svg", "[Parent]", dirname($directory)."/", "?path=", $suffix));
+	if ($i == 0) printf(get_item($directory, $i, "file-symlink-directory.svg", "[parent]", dirname($directory)."/", "?path=", $suffix));
 	while ($i < $j - 1 && ++$i < $length)
 	{
 		$path = $directory.$index[$i];
@@ -91,7 +91,7 @@ if ($length > 1) while ($i < $length - 1)
 	if ($length < CONF_COL) for ($i = $length; $i < CONF_COL; $i++) printf("<td>\n</td>\n");
 	printf("</tr>\n");
 }
-else printf(get_item($directory, $i, "file-symlink-directory.svg", "[Parent]", dirname($directory)."/", "?path=", $suffix)."<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n");
+else printf(get_item($directory, $i, "file-symlink-directory.svg", "[parent]", dirname($directory)."/", "?path=", $suffix)."<td>\n</td>\n<td>\n</td>\n<td>\n</td>\n</tr>\n");
 
 ?>
 </table>
