@@ -10,7 +10,6 @@ function hover(background, item, path, type)
 		case 'image':
 			document.getElementById("preview").style.backgroundImage = "url('" + path + "')";
 			break;
-	    default:
-			break;
+		default: break;
 	}
 }
