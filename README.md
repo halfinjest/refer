@@ -4,7 +4,7 @@ Directory navigation for web.
 
 ## About
 
-Refer provides, namely for web administrators, a form of directory navigation for a web site; this can be made public on a web site for use by anyone to navigate its directory system.
+Refer provides, namely for web administrators, a form of directory navigation for a web site; this can be made public on a web site for use by anyone to navigate the desired directory system.
 
 ## Usage
 
