@@ -48,17 +48,4 @@ function get_type($extension)
 	}
 }
 
-function get_image($extension)
-{
-	switch (get_type($extension))
-	{
-		case "other": return "file.svg";
-		case "code": return "file-code.svg";
-		case "image":
-		case "media": return "file-media.svg";
-		case "pdf": return "file-pdf.svg";
-		case "text": return "file-text.svg";
-	}
-}
-
 ?>

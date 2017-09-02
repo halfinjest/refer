@@ -4,7 +4,20 @@ include("get_type.php");
 
 define("CONF_COL", 4);
 define("CONF_MAX", 20);
-	
+
+function get_image($extension)
+{
+	switch (get_type($extension))
+	{
+		case "other": return "file.svg";
+		case "code": return "file-code.svg";
+		case "image":
+		case "media": return "file-media.svg";
+		case "pdf": return "file-pdf.svg";
+		case "text": return "file-text.svg";
+	}
+}
+
 function get_item($directory, $id, $image, $index, $name, $path, $prefix)
 {
 	return "<td>\n<a href=\"".$prefix.$path."\">\n<div class=\"item\" id=\"".$id."\" onmouseout=\"hover(0, '".$id."', '".$directory."', '')\" onmouseover=\"hover(1, '".$id."', '".$path."', '".(is_dir($path) ? "directory" : get_type(strtolower(strrchr($index[$id], "."))))."')\">\n<p align=\"center\"><img height=\"50px\" src=\"images/".$image."\"></img></p>\n<p align=\"center\">".$name."</p>\n</div>\n</a>\n</td>\n";
