@@ -57,10 +57,10 @@ if ($length > 1) while ($i < $length - 1)
 	while ($i < $j - 1 && ++$i < $length)
 	{
 		$path = $directory.$index[$i];
-		if (strlen($index[$i]) > CONF_MAX) $name = substr($index[$i], 0, CONF_MAX - 2)."..";
-		else $name = $index[$i];
-		if (is_dir($path)) printf(get_item(htmlentities($directory), $i, "file-directory.svg", $index, htmlentities($name), htmlentities($path)."/", "?path="));
-		else printf(get_item(htmlentities($directory), $i, image(strtolower(strrchr($index[$i], "."))), $index, htmlentities($name), htmlentities($path), ""));
+		if (strlen($index[$i]) > CONF_MAX) $name = htmlentities(substr($index[$i], 0, CONF_MAX - 2))."..";
+		else $name = htmlentities($index[$i]);
+		if (is_dir($path)) printf(get_item(htmlentities($directory), $i, "file-directory.svg", $index, $name, htmlentities($path)."/", "?path="));
+		else printf(get_item(htmlentities($directory), $i, image(strtolower(strrchr($index[$i], "."))), $index, $name, htmlentities($path), ""));
 	}
 	if ($length < CONF_COL) for ($i = $length; $i < CONF_COL; $i++) printf("<td>\n</td>\n");
 	printf("</tr>\n");
