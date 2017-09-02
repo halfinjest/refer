@@ -5,8 +5,14 @@ include("type.php");
 define("CONF_COL", 4);
 define("CONF_MAX", 20);
 
-if (isset($_GET["path"]) && file_exists($_GET["path"]) && substr($_GET["path"], 0, 2) == "./") $directory = $_GET["path"];
-else header("Location: ?path=./");
+function get_safe_path($path)
+{
+	return str_replace("//", "/", str_replace("..", "", $path));
+}
+
+if (!isset($_GET["path"]) || !file_exists($_GET["path"]) || !substr($_GET["path"], 0, 1) == "." || !substr($_GET["path"], 1, 2) == "/") header("Location: ?path=./");
+$directory = get_safe_path($_GET["path"]);
+if ($directory != $_GET["path"]) header("Location: ?path=".$directory);
 
 ?>
 <html>
