@@ -1,6 +1,6 @@
-function hover(background, item, path, type)
+function hover(background, id, path, type)
 {
-	document.getElementById(item).style.background = background ? "rgba(219, 219, 219, 0.6)" : "transparent";
+	document.getElementById(id).style.background = background ? "rgba(219, 219, 219, 0.6)" : "transparent";
 	document.getElementById("path").innerHTML = path;
 	switch (type)
 	{
