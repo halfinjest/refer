@@ -18,7 +18,7 @@ div.item {
 }
 div.listing {
 	margin: 0px auto;
-	width: 90%;
+	padding: 0px 10px;
 }
 div.listing p {
 	font-size: 16px;
@@ -63,7 +63,7 @@ div.preview {
 	visibility: hidden;
 }
 table {
-	margin: 20px auto;
+	margin: 0px;
 	padding: 0px;
 	width: 100%;
 }
