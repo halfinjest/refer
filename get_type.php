@@ -44,7 +44,7 @@ function get_type($extension)
 		case ".wpd":
 		case ".wps":
 			return "text";
-		default: return "other";
+		default: return "";
 	}
 }
 
