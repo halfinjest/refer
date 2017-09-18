@@ -4,10 +4,10 @@ function hover(background, id, path, type)
 	document.getElementById("path").innerHTML = path;
 	switch (type)
 	{
-		case '':
+		case "":
 			document.getElementById("preview").style.backgroundImage = "";
 			break;
-		case 'image':
+		case "image":
 			document.getElementById("preview").style.backgroundImage = "url('" + path + "')";
 			break;
 		default: break;
