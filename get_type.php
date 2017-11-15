@@ -11,6 +11,7 @@ function get_type($extension)
 		case ".php":
 		case ".xhtml":
 			return "code";
+
 		case ".bmp":
 		case ".gif":
 		case ".jpg":
@@ -19,6 +20,7 @@ function get_type($extension)
 		case ".png":
 		case ".svg":
 			return "image";
+
 		case ".m4a":
 		case ".mid":
 		case ".mp3":
@@ -33,8 +35,10 @@ function get_type($extension)
 		case ".swf":
 		case ".wmv":
 			return "media";
+
 		case ".pdf":
 			return "pdf";
+
 		case ".doc":
 		case ".docx":
 		case ".msg":
@@ -44,7 +48,9 @@ function get_type($extension)
 		case ".wpd":
 		case ".wps":
 			return "text";
-		default: return "";
+
+		default:
+			return "";
 	}
 }
 
