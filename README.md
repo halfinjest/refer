@@ -8,7 +8,7 @@ Refer provides, namely for web administrators, a form of directory navigation fo
 
 ## Usage
 
-For the purpose of simplicity, HTML elements have not been indented, but this can easily be changed to allow for syntactical consistency.
+For the purpose of simplicity, HTML elements have not been indented, but this can easily be changed to allow for syntactic consistency.
 
 The files in this repository can be uploaded onto a web site and used as a form of directory navigation for the containing directory and all subdirectories. The shift key is pressed to display a preview of any image file over which the cursor hovers.
 
